@@ -20,7 +20,7 @@
 	    animateOut: 'fadeOut',
 	    animateIn: 'fadeIn',
 	    nav:true,
-	    dots: true,
+	    dots: false,
 	    autoplayHoverPause: false,
 	    items: 1,
 	    navText : ["<span class='ion-ios-arrow-back'></span>","<span class='ion-ios-arrow-forward'></span>"],
@@ -72,35 +72,41 @@
 		
 
 
-// Owlcarousel
-$(document).ready(function(){
-	$(".owl-carousel").owlCarousel({
-		loop:true,
-	  margin:10,
-	  nav:true,
-	  autoplay:true,
-	  autoplayTimeout:3000,
-	  autoplayHoverPause:true,
-	  center: true,
-	  navText: [
-		  "<i class='fa fa-angle-left'></i>",
-		  "<i class='fa fa-angle-right'></i>"
-	  ],
-	  responsive:{
-		  0:{
-			  items:1
-		  },
-		  600:{
-			  items:1
-		  },
-		  1000:{
-			  items:3
-		  }
-	  }
-	});
+// Owlcarousel Product
+  $(document).ready(function(){
+  var owl = $('.owl-carousel');
+  owl.owlCarousel({
+    loop:true,
+    margin:15,
+	autoplay:true,
+	autoplayTimeout:3000,
+	autoplayHoverPause:true,
+	dots: false,
+    nav:false,
+	responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 2
+        },
+        1000: {
+          items: 3
+        }
+      }
   });
-
-
+  
+  // Custom Button
+  $('.customNextBtn').click(function() {
+    owl.trigger('next.owl.carousel');
+  });
+  $('.customPreviousBtn').click(function() {
+    owl.trigger('prev.owl.carousel');
+  });
+  
+});
+		
+	
 // Navbar
 (function($) {
 
